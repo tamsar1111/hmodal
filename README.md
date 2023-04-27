@@ -19,7 +19,7 @@ Put the script at the bottom of your markup:
 
 First, add the required modal button markup to the page:
 ```html
-<button class="hmodal-button" data-target="#modalExample">Open example modal</button>
+<button class="hmodal-button" data-hmodal-target="#modalExample">Open example modal</button>
 ```
 
 then add the markup of the modal window itself:

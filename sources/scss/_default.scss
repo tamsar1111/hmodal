@@ -1,0 +1,136 @@
+/** HModal */
+
+// Reset styles
+.hmodal-button,
+.hmodal {
+	&,
+	> * {
+		box-sizing: border-box;
+	}
+}
+
+// HModal object
+.hmodal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background-color: rgba( $hmodal-black, .4 );
+	opacity: 0;
+	visibility: hidden;
+	transition: $hmodal-transition;
+
+	&.show {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.hmodal-inner {
+	max-height: 100%;
+	max-width: $hmodal-width;
+	background-color: $hmodal-white;
+	overflow-y: auto;
+	transition: $hmodal-transition;
+
+	> * + * {
+		border-top: 1px solid $hmodal-border-color;
+	}
+}
+
+.hmodal-header {
+	position: relative;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.hmodal-body {
+	padding: 20px;
+}
+
+.hmodal-footer {
+	padding: 20px;
+}
+
+// Buttons style
+.hmodal-button,
+.hmodal-close {
+	display: inline-block;
+	box-shadow: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.hmodal-button {
+	padding: 10px 20px;
+	border: 1px solid $hmodal-primary;
+	color: $hmodal-white;
+	background-color: $hmodal-primary;
+
+	&:hover,
+	&:focus {
+		color: $hmodal-white;
+		background-color: $hmodal-active;
+		border-color: $hmodal-active;
+	}
+}
+
+.hmodal-close-btn {
+	padding: 8px 15px;
+	border: 1px solid $hmodal-primary;
+	color: $hmodal-white;
+	background-color: $hmodal-primary;
+
+	&:hover,
+	&:focus {
+		color: $hmodal-white;
+		background-color: $hmodal-active;
+		border-color: $hmodal-active;
+	}
+}
+
+.hmodal-close-icon {
+	padding: 0 5px;
+	font-size: 20px;
+	line-height: 1;
+	color: $hmodal-close-icon-color;
+	background-color: transparent;
+	border: none;
+
+	&:hover {
+		color: $hmodal-close-icon-color-active;
+	}
+}
+
+// Static mode
+.hmodal-static {
+	.hmodal-inner {
+		animation: modalBounce .5s;
+	}
+}
+
+// Slide effect
+.hmodal-slide {
+	.hmodal-inner {
+		transform: translateY( -100px );
+	}
+
+	&.show {
+		.hmodal-inner {
+			transform: translateY( 0 );
+		}
+	}
+}
+
+@keyframes modalBounce {
+	0% { transform: scale( 1 ) }
+	50% { transform: scale( 1.05 ) }
+	100% { transform: scale( 1 ) }
+}

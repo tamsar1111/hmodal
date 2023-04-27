@@ -1,6 +1,8 @@
 # HModal
 
 Simple modal window. Easy to use.
+Check out this [Demo](https://codepen.io/Himic/pen/wvYeeEb) to see it in action!
+
 
 ## HModal Usage
 ### Include
